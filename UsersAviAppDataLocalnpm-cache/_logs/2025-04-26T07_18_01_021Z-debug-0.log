@@ -1,0 +1,20 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v23.6.1
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Avi\.npmrc
+5 silly config load:file:C:\Users\Avi\OneDrive\Desktop\your heart\UsersAviAppDataRoamingnpm\etc\npmrc
+6 verbose title npm create vite@latest client react
+7 verbose argv "create" "vite@latest" "client" "--template" "react"
+8 verbose logfile logs-max:10 dir:C:\Users\Avi\OneDrive\Desktop\your heart\UsersAviAppDataLocalnpm-cache\_logs\2025-04-26T07_18_01_021Z-
+9 verbose logfile C:\Users\Avi\OneDrive\Desktop\your heart\UsersAviAppDataLocalnpm-cache\_logs\2025-04-26T07_18_01_021Z-debug-0.log
+10 silly logfile done cleaning log files
+11 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+12 http fetch GET 200 https://registry.npmjs.org/create-vite 504ms (cache updated)
+13 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+14 verbose cwd C:\Users\Avi\OneDrive\Desktop\your heart
+15 verbose os Windows_NT 10.0.22631
+16 verbose node v23.6.1
+17 verbose npm  v10.9.2
+18 verbose exit 0
+19 info ok
