@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import styles from "./HeartPrediction.module.css";
+import FeedbackForm from "./FeedbackForm";
+
+
 
 export default function HeartPrediction() {
   const [features, setFeatures] = useState({
@@ -65,6 +68,7 @@ export default function HeartPrediction() {
     { name: "ca", label: "Major Vessels", options: ["0", "1", "2", "3"] },
     { name: "thal", label: "Thalassemia", options: ["0", "1", "2", "3"] },
   ];
+  
 
   return (
     <>
@@ -378,7 +382,7 @@ export default function HeartPrediction() {
           {/* Left Side: Contact Details */}
           <div className={styles.contactDetails}>
             <p>
-              <strong>Email:</strong> avisharmaaa373@gmail.com,adityadixitaadi@gmail.com
+              <strong>Email:</strong> avisharmaaa373@gmail.com, adityadixitaadi@gmail.com
             </p>
             <p>
               <strong>Phone:</strong> +91 70841 40032, +91 9258247887
@@ -399,30 +403,7 @@ export default function HeartPrediction() {
           </div>
 
           {/* Right Side: Feedback Form */}
-          <form className={styles.contactForm}>
-            <h3 className={styles.feedbackHeading}>Feedback</h3>
-            <input
-              type="text"
-              placeholder="Your Name"
-              className={styles.contactInput}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className={styles.contactInput}
-              required
-            />
-            <textarea
-              placeholder="Your Feedback"
-              className={styles.contactTextarea}
-              rows="5"
-              required
-            ></textarea>
-            <button type="submit" className={styles.contactButton}>
-              Submit Feedback
-            </button>
-          </form>
+          <FeedbackForm />
         </div>
       </motion.div>
     </>

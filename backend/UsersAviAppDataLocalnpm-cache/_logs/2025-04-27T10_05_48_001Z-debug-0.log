@@ -1,0 +1,30 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v23.6.1
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Avi\.npmrc
+5 silly config load:file:C:\Users\Avi\OneDrive\Desktop\your heart\backend\UsersAviAppDataRoamingnpm\etc\npmrc
+6 verbose title npm init
+7 verbose argv "init" "--yes"
+8 verbose logfile logs-max:10 dir:C:\Users\Avi\OneDrive\Desktop\your heart\backend\UsersAviAppDataLocalnpm-cache\_logs\2025-04-27T10_05_48_001Z-
+9 verbose logfile C:\Users\Avi\OneDrive\Desktop\your heart\backend\UsersAviAppDataLocalnpm-cache\_logs\2025-04-27T10_05_48_001Z-debug-0.log
+10 silly logfile done cleaning log files
+11 silly package data {
+11 silly package data   name: 'backend',
+11 silly package data   version: '1.0.0',
+11 silly package data   main: 'server.js',
+11 silly package data   scripts: {
+11 silly package data     test: 'echo "Error: no test specified" && exit 1',
+11 silly package data     start: 'node server.js'
+11 silly package data   },
+11 silly package data   keywords: [],
+11 silly package data   author: '',
+11 silly package data   license: 'ISC',
+11 silly package data   description: ''
+11 silly package data }
+12 verbose cwd C:\Users\Avi\OneDrive\Desktop\your heart\backend
+13 verbose os Windows_NT 10.0.22631
+14 verbose node v23.6.1
+15 verbose npm  v10.9.2
+16 verbose exit 0
+17 info ok
