@@ -95,6 +95,9 @@ export default function HeartPrediction() {
           <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
             <a href="#developers">Developers</a>
           </motion.li>
+          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <a href="#contact">Contact</a>
+          </motion.li>
         </motion.ul>
       </nav>
 
@@ -357,6 +360,71 @@ export default function HeartPrediction() {
           ))}
         </div>
       </div>
+      <div id="contact"></div>
+      <motion.div
+        className={styles.contactSection}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        <h2 className={styles.contactHeading}>Contact Us</h2>
+        <p className={styles.contactSubheading}>
+          We would love to hear from you!
+        </p>
+
+        {/* Two-column layout */}
+        <div className={styles.contactContent}>
+          {/* Left Side: Contact Details */}
+          <div className={styles.contactDetails}>
+            <p>
+              <strong>Email:</strong> your-email@example.com
+            </p>
+            <p>
+              <strong>Phone:</strong> +91 12345 67890
+            </p>
+            <p>
+              <strong>Address:</strong> Your City, Your Country
+            </p>
+            <p>
+              <strong>Instagram:</strong>{" "}
+              <a
+                href="https://instagram.com/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Follow Us
+              </a>
+            </p>
+          </div>
+
+          {/* Right Side: Feedback Form */}
+          <form className={styles.contactForm}>
+            <h3 className={styles.feedbackHeading}>Feedback</h3>
+            <input
+              type="text"
+              placeholder="Your Name"
+              className={styles.contactInput}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className={styles.contactInput}
+              required
+            />
+            <textarea
+              placeholder="Your Feedback"
+              className={styles.contactTextarea}
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit" className={styles.contactButton}>
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </motion.div>
     </>
   );
 }

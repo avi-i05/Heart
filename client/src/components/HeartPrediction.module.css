@@ -569,3 +569,104 @@ html {
       margin-top: 100px;
     }
   }
+  .contactSection {
+    background-color: #0b1e34; /* Light grey background */
+    padding: 4rem 2rem;
+  }
+  
+  .contactHeading {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contactSubheading {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #666;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contactContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff; /* White background for the card */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contactDetails {
+    flex: 1;
+    min-width: 280px;
+    font-size: 1.1rem;
+    color: #444;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.8;
+  }
+  
+  .contactDetails p {
+    margin-bottom: 1rem;
+  }
+  
+  .contactDetails a {
+    color: #ff5e5e;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .contactDetails a:hover {
+    text-decoration: underline;
+  }
+  
+  .contactForm {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .feedbackHeading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contactInput,
+  .contactTextarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  .contactButton {
+    padding: 1rem;
+    background-color: #ff5e5e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contactButton:hover {
+    background-color: #ff3b3b;
+  }
+  
+  
+  

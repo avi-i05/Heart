@@ -19,7 +19,7 @@ app.add_middleware(
 
 
 
-with open("heartfinal.pkl", "rb") as f:
+with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
 class PredictionRequest(BaseModel):
