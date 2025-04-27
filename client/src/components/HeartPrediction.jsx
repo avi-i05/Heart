@@ -378,13 +378,13 @@ export default function HeartPrediction() {
           {/* Left Side: Contact Details */}
           <div className={styles.contactDetails}>
             <p>
-              <strong>Email:</strong> your-email@example.com
+              <strong>Email:</strong> avisharmaaa373@gmail.com,adityadixitaadi@gmail.com
             </p>
             <p>
-              <strong>Phone:</strong> +91 12345 67890
+              <strong>Phone:</strong> +91 70841 40032, +91 9258247887
             </p>
             <p>
-              <strong>Address:</strong> Your City, Your Country
+              <strong>Address:</strong> Barielly, India
             </p>
             <p>
               <strong>Instagram:</strong>{" "}
