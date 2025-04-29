@@ -17,7 +17,7 @@ export default function FeedbackForm() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:7000/send-feedback", formData);
+      await axios.post("https://node-api-v9i2.onrender.com/send-feedback", formData);
       alert("Feedback sent successfully!");
     } catch (error) {
       console.error(error);

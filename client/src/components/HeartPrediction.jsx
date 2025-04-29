@@ -36,10 +36,12 @@ export default function HeartPrediction() {
     setLoading(true);
 
     try {
-      // 1. Predict heart disease
       const featureValues = Object.values(features).map(Number);
+      console.log("Sending features:", featureValues);  
+
+     
       const predictResponse = await axios.post(
-        "http://localhost:8000/predict",
+        "https://flask-api-1-4ij8.onrender.com/predict",  
         {
           features: featureValues,
         }
@@ -48,9 +50,9 @@ export default function HeartPrediction() {
       console.log("Prediction Response:", predictResponse.data);
       setPrediction(predictResponse.data.prediction);
 
-      // 2. Save patient form data
+      
       const saveResponse = await axios.post(
-        "http://localhost:7000/save-patient",
+        "https://node-api-v9i2.onrender.com/save-patient",  
         features
       );
 
@@ -58,12 +60,13 @@ export default function HeartPrediction() {
     } catch (err) {
       console.error("Error:", err);
       setError(
-        "Something went wrong. Please check input values and try again."
+        `Something went wrong: ${err.response ? err.response.data : err.message}. Please check input values and try again.`
       );
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <>
