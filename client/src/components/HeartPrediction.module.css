@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap");
-*{
-    margin: 0%;
+* {
+  margin: 0%;
 }
 .navbar {
   display: flex;
@@ -87,7 +87,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background: linear-gradient(to bottom, black 95%, transparent 100%);
   height: 88vh;
   width: 95vw;
   position: relative;
@@ -141,16 +141,6 @@ html {
   animation: quoteAnimation 1s ease-out;
 }
 
-.humanBody {
-  position: absolute;
-  bottom: 0;
-  left: 2rem;
-  width: 300px;
-  height: 500px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -159,6 +149,7 @@ html {
   max-width: 600px;
   margin: 0 auto;
   scroll-margin-top: 86px;
+  margin-bottom: 50px;
 }
 
 .heading {
@@ -259,27 +250,6 @@ html {
   font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
 }
-.modelCard {
-  margin-top: 3rem;
-  padding: 2rem 3rem;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border: none;
-  background-color: #ffffff;
-  max-width: 700px;
-  width: 90%;
-  font-family: "Poppins", sans-serif;
-  color: #333;
-  animation: fadeIn 1s ease-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 200px;
-}
 
 .cardHeading {
   font-size: 1.75rem;
@@ -289,16 +259,18 @@ html {
 }
 
 .developerSection {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   text-align: center;
   background: #f9f9f9;
   border-radius: 2rem;
   margin-top: 10rem;
+  margin-bottom: 100px;
 }
 
 .devHeading {
   font-size: 2rem;
   font-weight: bold;
+  margin-top: 100px;
   margin-bottom: 2rem;
   font-family: "Poppins", sans-serif;
 }
@@ -345,6 +317,23 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+.socialIcons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.socialIcon:hover {
+  transform: scale(1.2);
+}
 
 .remedies {
   margin-top: 1rem;
@@ -383,7 +372,6 @@ html {
   margin-bottom: 0.5rem;
 }
 
-
 @media (max-width: 1024px) {
   .introHead {
     font-size: 60px;
@@ -394,7 +382,8 @@ html {
     height: 400px;
   }
 
-  .input, .select {
+  .input,
+  .select {
     width: 100%;
   }
 
@@ -486,187 +475,336 @@ html {
   }
 }
 
-
 @media (max-width: 1024px) {
-    .introHead {
-      font-size: 4rem;
-    }
-  
-    .humanBody {
-      width: 220px;
-      height: 400px;
-    }
-  
-    .formWrapper {
-      grid-template-columns: 1fr;
-    }
+  .introHead {
+    font-size: 4rem;
   }
-  
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem;
-    }
-  
-    .navLinks {
-      flex-direction: column;
-      width: 100%;
-      margin-top: 1rem;
-      gap: 1rem;
-    }
-  
-    .intro {
-      height: auto;
-      padding: 3rem 1rem;
-    }
-  
-    .introHead {
-      font-size: 3rem;
-    }
-  
-    .heart {
-      font-size: 5rem;
-    }
-  
-    .humanBody {
-      display: none;
-    }
-  
-    .developerSection {
-      margin-top: 5rem;
-    }
+
+  .humanBody {
+    width: 220px;
+    height: 400px;
   }
-  
-  @media (max-width: 480px) {
-    .navLogo {
-      font-size: 1.5rem;
-    }
-  
-    .introHead {
-      font-size: 2rem;
-    }
-  
-    .quote {
-      font-size: 1.2rem;
-    }
-  
-    .formWrapper {
-      padding: 1rem 0;
-    }
-  
-    .button {
-      width: 100%;
-    }
-  
-    .devCard {
-      width: 100%;
-      padding: 1rem;
-    }
-  
-    .modelCard {
-      padding: 1.5rem;
-      margin-top: 100px;
-    }
+
+  .formWrapper {
+    grid-template-columns: 1fr;
   }
-  .contactSection {
-    background-color: #0b1e34; /* Light grey background */
-    padding: 4rem 2rem;
-  }
-  
-  .contactHeading {
-    text-align: center;
-    color: white;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .contactSubheading {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    color: #666;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .contactContent {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #ffffff; /* White background for the card */
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contactDetails {
-    flex: 1;
-    min-width: 280px;
-    font-size: 1.1rem;
-    color: #444;
-    font-family: "Poppins", sans-serif;
-    line-height: 1.8;
-  }
-  
-  .contactDetails p {
-    margin-bottom: 1rem;
-  }
-  
-  .contactDetails a {
-    color: #ff5e5e;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .contactDetails a:hover {
-    text-decoration: underline;
-  }
-  
-  .contactForm {
-    flex: 1;
-    min-width: 320px;
-    display: flex;
+}
+
+@media (max-width: 768px) {
+  .navbar {
     flex-direction: column;
-    margin-right: 20px;
+    align-items: flex-start;
+    padding: 1rem;
   }
-  
-  .feedbackHeading {
+
+  .navLinks {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .intro {
+    height: auto;
+    padding: 3rem 1rem;
+  }
+
+  .introHead {
+    font-size: 3rem;
+  }
+
+  .heart {
+    font-size: 5rem;
+  }
+
+  .humanBody {
+    display: none;
+  }
+
+  .developerSection {
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLogo {
+    font-size: 1.5rem;
+  }
+
+  .introHead {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-    font-family: "Poppins", sans-serif;
   }
-  
-  .contactInput,
-  .contactTextarea {
+
+  .quote {
+    font-size: 1.2rem;
+  }
+
+  .formWrapper {
+    padding: 1rem 0;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .devCard {
     width: 100%;
     padding: 1rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-family: "Poppins", sans-serif;
-    background-color: #f7f7f7;
   }
-  
-  .contactButton {
-    padding: 1rem;
-    background-color: #ff5e5e;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .modelCard {
+    padding: 1.5rem;
+    margin-top: 100px;
   }
-  
-  .contactButton:hover {
-    background-color: #ff3b3b;
+}
+.contactSection {
+  background-color: #0b1e34;
+  padding: 4rem 2rem;
+  margin-top: 100px;
+  margin-bottom: 0%;
+}
+
+.contactHeading {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.contactSubheading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+
+.contactContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff; /* White background for the card */
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contactDetails {
+  flex: 1;
+  min-width: 280px;
+  font-size: 1.1rem;
+  color: #444;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.8;
+}
+
+.contactDetails p {
+  margin-bottom: 1rem;
+}
+
+.contactDetails a {
+  color: #ff5e5e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contactDetails a:hover {
+  text-decoration: underline;
+}
+
+.contactForm {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.feedbackHeading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+
+.contactInput,
+.contactTextarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f7;
+}
+
+.contactButton {
+  padding: 1rem;
+  background-color: #ff5e5e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #ff3b3b;
+}
+
+.headingUnderline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.headingUnderline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #f87171;
+  border-radius: 2px;
+  animation: expandLine 1s ease forwards;
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
   }
-  
-  
-  
+  to {
+    width: 100%;
+  }
+}
+
+.modelInfo {
+  padding: 2rem;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  font-family: "Poppins", sans-serif;
+  background-color: #f9fafb; /* A soft background to separate the content */
+}
+
+.headingUnderline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.headingUnderline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 4px;
+  background-color: #f87171;
+  border-radius: 2px;
+}
+
+.subHeading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f87171;
+  font-family: "Poppins", sans-serif;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.subHeading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background-color: #f87171;
+  border-radius: 2px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  border: 1px solid #f0f0f0;
+  box-sizing: border-box;
+}
+
+.card p {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.card strong {
+  font-weight: bold;
+  color: #f87171;
+}
+
+.sectionDivider {
+  margin: 2rem auto;
+  width: 80%;
+  height: 2px;
+  border: none;
+  background: linear-gradient(to right, transparent, #f87171, transparent);
+  filter: blur(0.4px);
+  opacity: 0.7;
+}
+.devHoverList {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  font-size: 0.85rem;
+  color: #444;
+  text-align: left;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-family: "Poppins", sans-serif;
+}
+
+.devCard:hover .devHoverList {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: black;
+  text-align: center;
+  margin-top: 0%;
+  border-top: 1px solid #444;
+}
+
+.footerText {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+}

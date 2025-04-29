@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import styles from "./HeartPrediction.module.css";
 import FeedbackForm from "./FeedbackForm";
 
-
-
 export default function HeartPrediction() {
   const [features, setFeatures] = useState({
     age: "",
@@ -38,37 +36,34 @@ export default function HeartPrediction() {
     setLoading(true);
 
     try {
+      // 1. Predict heart disease
       const featureValues = Object.values(features).map(Number);
+      const predictResponse = await axios.post(
+        "http://localhost:8000/predict",
+        {
+          features: featureValues,
+        }
+      );
 
-      const response = await axios.post("http://localhost:8000/predict", {
-        features: featureValues,
-      });
+      console.log("Prediction Response:", predictResponse.data);
+      setPrediction(predictResponse.data.prediction);
 
-      console.log("API Response:", response.data);
-      setPrediction(response.data.prediction);
+      // 2. Save patient form data
+      const saveResponse = await axios.post(
+        "http://localhost:7000/save-patient",
+        features
+      );
+
+      console.log("Save Patient Response:", saveResponse.data);
     } catch (err) {
-      console.error("API Error:", err);
-      setError("Prediction failed. Please check input values and try again.");
+      console.error("Error:", err);
+      setError(
+        "Something went wrong. Please check input values and try again."
+      );
     } finally {
       setLoading(false);
     }
   };
-
-  const dropdownFields = [
-    { name: "sex", label: "Sex", options: ["0: Female", "1: Male"] },
-    { name: "cp", label: "Chest Pain Type", options: ["0", "1", "2", "3"] },
-    {
-      name: "fbs",
-      label: "Fasting Blood Sugar",
-      options: ["0: ≤120mg/dl", "1: >120mg/dl"],
-    },
-    { name: "restecg", label: "Rest ECG", options: ["0", "1", "2"] },
-    { name: "exang", label: "Exercise Angina", options: ["0: No", "1: Yes"] },
-    { name: "slope", label: "ST Slope", options: ["0", "1", "2"] },
-    { name: "ca", label: "Major Vessels", options: ["0", "1", "2", "3"] },
-    { name: "thal", label: "Thalassemia", options: ["0", "1", "2", "3"] },
-  ];
-  
 
   return (
     <>
@@ -117,7 +112,11 @@ export default function HeartPrediction() {
       </div>
 
       <div className={styles.formContainer} id="checkup">
-        <h1 className={styles.heading}>Quick Check Up</h1>
+        <h1 className={styles.heading}>
+          <span className={styles.headingUnderline}>
+            Health Status at a Glance
+          </span>
+        </h1>
         <motion.form
           onSubmit={handleSubmit}
           className={styles.formWrapper}
@@ -142,7 +141,46 @@ export default function HeartPrediction() {
               required
             />
           </div>
-
+          <div className={styles.inputGroup}>
+            <label htmlFor="sex" className={styles.label}>
+              Sex
+            </label>
+            <select
+              id="sex"
+              name="sex"
+              value={features.sex}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0: Female", "1: Male"].map((option, index) => (
+                <option key={index} value={option.split(":")[0]}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="cp" className={styles.label}>
+              Chest Pain Type
+            </label>
+            <select
+              id="cp"
+              name="cp"
+              value={features.cp}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0", "1", "2", "3"].map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className={styles.inputGroup}>
             <label htmlFor="trestbps" className={styles.label}>
               Resting BP (mm Hg)
@@ -176,7 +214,46 @@ export default function HeartPrediction() {
               required
             />
           </div>
-
+          <div className={styles.inputGroup}>
+            <label htmlFor="fbs" className={styles.label}>
+              Fasting Blood Sugar
+            </label>
+            <select
+              id="fbs"
+              name="fbs"
+              value={features.fbs}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0: ≤120mg/dl", "1: >120mg/dl"].map((option, index) => (
+                <option key={index} value={option.split(":")[0]}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="restecg" className={styles.label}>
+              Rest ECG
+            </label>
+            <select
+              id="restecg"
+              name="restecg"
+              value={features.restecg}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0", "1", "2"].map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className={styles.inputGroup}>
             <label htmlFor="thalach" className={styles.label}>
               Max Heart Rate Achieved
@@ -193,7 +270,26 @@ export default function HeartPrediction() {
               required
             />
           </div>
-
+          <div className={styles.inputGroup}>
+            <label htmlFor="exang" className={styles.label}>
+              Exercise Angina
+            </label>
+            <select
+              id="exang"
+              name="exang"
+              value={features.exang}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0: No", "1: Yes"].map((option, index) => (
+                <option key={index} value={option.split(":")[0]}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className={styles.inputGroup}>
             <label htmlFor="oldpeak" className={styles.label}>
               ST Depression (Oldpeak)
@@ -211,28 +307,66 @@ export default function HeartPrediction() {
               required
             />
           </div>
-          {dropdownFields.map(({ name, label, options }) => (
-            <div key={name} className={styles.inputGroup}>
-              <label htmlFor={name} className={styles.label}>
-                {label}
-              </label>
-              <select
-                id={name}
-                name={name}
-                value={features[name]}
-                onChange={handleChange}
-                className={styles.select}
-                required
-              >
-                <option value="">Select</option>
-                {options.map((option, index) => (
-                  <option key={index} value={option.split(":")[0]}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
+          <div className={styles.inputGroup}>
+            <label htmlFor="slope" className={styles.label}>
+              ST Slope
+            </label>
+            <select
+              id="slope"
+              name="slope"
+              value={features.slope}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0", "1", "2"].map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="ca" className={styles.label}>
+              Major Vessels
+            </label>
+            <select
+              id="ca"
+              name="ca"
+              value={features.ca}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0", "1", "2", "3"].map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="thal" className={styles.label}>
+              Thalassemia
+            </label>
+            <select
+              id="thal"
+              name="thal"
+              value={features.thal}
+              onChange={handleChange}
+              className={styles.select}
+              required
+            >
+              <option value="">Select</option>
+              {["0", "1", "2", "3"].map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
 
           <motion.button
             whileTap={{ scale: 0.95 }}
@@ -299,51 +433,117 @@ export default function HeartPrediction() {
 
         {error && <p className={styles.error}>{error}</p>}
       </div>
+      <hr className={styles.sectionDivider} />
       <div id="about"></div>
       <motion.div
-        className={styles.modelCard}
+        className={styles.modelInfo}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <h2>Model Information</h2>
+        <h2 className={styles.headingUnderline}>Model Insights</h2>
         <p>
-          This model is trained on the UCI Heart Disease dataset using an
-          ensemble of classifiers including Random Forest, XGBoost, and Gradient
-          Boosting.
+          This model uses an ensemble of machine learning algorithms—Random
+          Forest, XGBoost, and Gradient Boosting—trained on the UCI Heart
+          Disease dataset. It predicts the likelihood of heart disease with an
+          accuracy of 98.5%.
         </p>
-        <p>
-          Accuracy achieved: <strong>98.5%</strong>
-        </p>
-        <p>
-          Technologies used:{" "}
-          <strong>Python, Scikit-learn, XGBoost, Flask, React</strong>
-        </p>
+
+        <div className={styles.cardContainer}>
+          <div className={styles.card}>
+            <h3 className={styles.subHeading}>Overview</h3>
+            <p>
+              The model combines various classifiers, including Random Forest,
+              XGBoost, and Gradient Boosting, to make robust predictions.
+            </p>
+          </div>
+
+          <div className={styles.card}>
+            <h3 className={styles.subHeading}>Performance</h3>
+            <p>
+              Accuracy achieved: <strong>98.5%</strong>
+            </p>
+          </div>
+
+          <div className={styles.card}>
+            <h3 className={styles.subHeading}>Technologies Used</h3>
+            <p>
+              <strong>Python, Scikit-learn, XGBoost, Flask, React</strong>
+            </p>
+          </div>
+        </div>
       </motion.div>
+      <hr className={styles.sectionDivider} />
+
       <div className={styles.developerSection} id="developers">
-        <h2 className={styles.devHeading}>Meet the Developers</h2>
+        <h2 className={styles.devHeading}>
+          <span className={styles.headingUnderline}>
+            The Team That Built This
+          </span>
+        </h2>
         <div className={styles.devCards}>
           {[
             {
-              name: "avi   Sharma",
-              image: "/",
-              desc: "",
+              name: "Avi Sharma",
+              image: "/avi.jpg",
+              desc: "Avi was responsible for the entire backend infrastructure of the project. He handled the integration of the machine learning model, database design, and deployment of the complete system, ensuring everything functioned smoothly behind the scenes.",
+              contributions: [
+                "Key Contributions:",
+                "Developed RESTful APIs to connect the frontend with the machine learning model.",
+                "Integrated the trained model into the backend for real-time prediction handling.",
+                "Designed and implemented the database to store patient data, model inputs, and results.",
+                "Managed deployment of the full application, including hosting, environment setup, and model serving.",
+                "Ensured backend performance, security, and scalability throughout development."
+              ],
+              gmail: "mailto:avisharmaaa373@gmail.com",
+              github: "https://github.com/avi-i05",
+              linkedin: "https://www.linkedin.com/in/avi-sharma-4189b1278/"
             },
             {
-              name: "aditya",
-              image: "/",
-              desc: "",
+              name: "Aditya",
+              image: "/aditya.jpg",
+              desc: "Aditya led the development and training of the machine learning model. He was responsible for building the core predictive engine that powers the application.",
+              contributions: [
+                "Key Contributions:",
+                "Collected, cleaned, and prepared the dataset for model training.",
+                "Engineered relevant features and selected appropriate algorithms for the prediction task.",
+                "Trained the initial version of the model and validated its performance using suitable metrics.",
+                "Documented the training process and collaborated with the team for seamless integration."
+              ],
+              gmail: "mailto:adityadixitaadi@gmail.com",
+              github: "https://github.com/aadidxt",
+              linkedin: "https://www.linkedin.com/in/aditya-dixit-1431a0312"
             },
             {
-              name: "udit tiwari",
-              image: "/",
-              desc: "Team lead -- Data Scientist who trained the model and optimized its accuracy.",
+              name: "Udit Tiwari",
+              image: "/udit1.jpg",
+              desc: "Udit focused on improving the performance and accuracy of the machine learning model developed by Aditya. His work ensured the model met high standards for reliability and precision.",
+              contributions: [
+                "Key Contributions:",
+                "Conducted in-depth performance analysis and identified areas for improvement.",
+                "Tuned hyperparameters and applied advanced optimization techniques.",
+                "Evaluated the model using metrics like accuracy, precision, recall, and F1-score.",
+                "Ensured the final model was efficient, robust, and production-ready."
+              ],
+              gmail: "mailto:uditt6758@gmail.com",
+              github: "https://github.com/Udit-Tiwari",
+              linkedin: "https://www.linkedin.com/in/udit-tiwari-30291824a"
             },
             {
-              name: "Yash dutt sharma",
-              image: "/",
-              desc: "",
+              name: "Yash Dutt Sharma",
+              image: "/yash1.jpg",
+              desc: "Yash played a key role in the frontend development and visual design of the project. His responsibilities focused on crafting an intuitive user interface and ensuring that the model’s results were presented in a clear, visually appealing, and user-friendly manner.",
+              contributions: [
+                "Key Contributions:",
+                "Designed and implemented the frontend layout using modern web technologies.",
+                "Developed responsive and accessible UI components for user interaction with the prediction model.",
+                "Integrated the model’s output into the interface for real-time and accurate result visualization.",
+                "Ensured consistency in design, color schemes, and branding across all pages."
+              ],
+              gmail: "mailto:ys107989@gmail.com",
+              github: "https://github.com/Yash-Dutt-Sharma",
+              linkedin: "https://www.linkedin.com/in/yash-dutt-sharma-yds"
             },
           ].map((dev, index) => (
             <motion.div
@@ -352,18 +552,49 @@ export default function HeartPrediction() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.2)",
-              }}
             >
               <img src={dev.image} alt={dev.name} className={styles.devImage} />
               <h3 className={styles.devName}>{dev.name}</h3>
               <p className={styles.devDesc}>{dev.desc}</p>
+
+              <ul className={styles.devHoverList}>
+                {dev.contributions?.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+
+              <div className={styles.socialIcons}>
+                <a href={dev.gmail} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/gmail-icon.png"
+                    alt="Gmail"
+                    className={styles.socialIcon}
+                  />
+                </a>
+                <a href={dev.github} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/github-icon.jpeg"
+                    alt="GitHub"
+                    className={styles.socialIcon}
+                  />
+                </a>
+                <a
+                  href={dev.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/linkedin-icon.png"
+                    alt="LinkedIn"
+                    className={styles.socialIcon}
+                  />
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
+      <hr className={styles.sectionDivider} />
       <div id="contact"></div>
       <motion.div
         className={styles.contactSection}
@@ -372,23 +603,26 @@ export default function HeartPrediction() {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <h2 className={styles.contactHeading}>Contact Us</h2>
+        <h2 className={styles.contactHeading}>
+          <span className={styles.headingUnderline} style={{ color: "white" }}>
+            Connect With Us
+          </span>
+        </h2>
         <p className={styles.contactSubheading}>
           We would love to hear from you!
         </p>
 
-        {/* Two-column layout */}
         <div className={styles.contactContent}>
-          {/* Left Side: Contact Details */}
           <div className={styles.contactDetails}>
             <p>
-              <strong>Email:</strong> avisharmaaa373@gmail.com, adityadixitaadi@gmail.com
+              <strong>Email:</strong> avisharmaaa373@gmail.com,
+              adityadixitaadi@gmail.com
             </p>
             <p>
               <strong>Phone:</strong> +91 70841 40032, +91 9258247887
             </p>
             <p>
-              <strong>Address:</strong> Barielly, India
+              <strong>Address:</strong> Bareilly, India
             </p>
             <p>
               <strong>Instagram:</strong>{" "}
@@ -401,11 +635,20 @@ export default function HeartPrediction() {
               </a>
             </p>
           </div>
-
-          {/* Right Side: Feedback Form */}
           <FeedbackForm />
         </div>
       </motion.div>
+      <motion.footer
+        className={styles.footer}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        <p className={styles.footerText}>
+          © {new Date().getFullYear()} Your Heart. All Rights Reserved.
+        </p>
+      </motion.footer>
     </>
   );
 }
