@@ -1,0 +1,51 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v23.6.1
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Avi\.npmrc
+5 silly config load:file:C:\Users\Avi\OneDrive\Desktop\your heart\UsersAviAppDataRoamingnpm\etc\npmrc
+6 verbose title npm create vite@latest dashboard react
+7 verbose argv "create" "vite@latest" "dashboard" "--template" "react"
+8 verbose logfile logs-max:10 dir:C:\Users\Avi\OneDrive\Desktop\your heart\UsersAviAppDataLocalnpm-cache\_logs\2025-05-11T09_26_31_191Z-
+9 verbose logfile C:\Users\Avi\OneDrive\Desktop\your heart\UsersAviAppDataLocalnpm-cache\_logs\2025-05-11T09_26_31_191Z-debug-0.log
+10 silly logfile start cleaning logs, removing 1 files
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 http fetch GET 200 https://registry.npmjs.org/create-vite 508ms (cache updated)
+14 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+15 silly idealTree buildDeps
+16 silly fetch manifest create-vite@6.5.0
+17 silly packumentCache full:https://registry.npmjs.org/create-vite cache-miss
+18 http fetch GET 200 https://registry.npmjs.org/create-vite 101ms (cache updated)
+19 silly packumentCache full:https://registry.npmjs.org/create-vite set size:undefined disposed:false
+20 silly placeDep ROOT create-vite@6.5.0 REPLACE for:  want: 6.5.0
+21 silly reify mark retired [
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\create-vite',
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\create-vite',
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\create-vite.cmd',
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\create-vite.ps1',
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\cva',
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\cva.cmd',
+21 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\cva.ps1'
+21 silly reify ]
+22 silly reify moves {
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\create-vite': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.create-vite-Ln57CxMY',
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\create-vite': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\.create-vite-aSmdZqcJ',
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\create-vite.cmd': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\.create-vite.cmd-uxOCa57e',
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\create-vite.ps1': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\.create-vite.ps1-aKUbkY44',
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\cva': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\.cva-2pyDUrVk',
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\cva.cmd': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\.cva.cmd-GwwG949v',
+22 silly reify   'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\cva.ps1': 'C:\\Users\\Avi\\OneDrive\\Desktop\\your heart\\UsersAviAppDataLocalnpm-cache\\_npx\\1415fee72ff6294b\\node_modules\\.bin\\.cva.ps1-8R75d5Od'
+22 silly reify }
+23 silly audit bulk request { 'create-vite': [ '6.5.0' ] }
+24 http cache create-vite@https://registry.npmjs.org/create-vite/-/create-vite-6.5.0.tgz 1ms (cache hit)
+25 silly tarball no local data for create-vite@https://registry.npmjs.org/create-vite/-/create-vite-6.5.0.tgz. Extracting by manifest.
+26 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 338ms
+27 silly audit report {}
+28 http fetch GET 200 https://registry.npmjs.org/create-vite/-/create-vite-6.5.0.tgz 752ms (cache miss)
+29 verbose cwd C:\Users\Avi\OneDrive\Desktop\your heart
+30 verbose os Windows_NT 10.0.22631
+31 verbose node v23.6.1
+32 verbose npm  v10.9.2
+33 verbose exit 0
+34 info ok

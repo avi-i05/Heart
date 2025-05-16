@@ -14,6 +14,7 @@ const patientSchema = new mongoose.Schema({
   slope: Number,
   ca: Number,
   thal: Number,
+  prediction: Number,
 });
 
 const Patient = mongoose.model('Patient', patientSchema);

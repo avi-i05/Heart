@@ -38,12 +38,14 @@ export default function HeartPrediction() {
     try {
       const featureValues = Object.values(features).map(Number);
       console.log("Sending features:", featureValues);  
+      
 
      
       const predictResponse = await axios.post(
         "https://flask-api-1-4ij8.onrender.com/predict",  
         {
           features: featureValues,
+          prediction: predictResponse.data.prediction,  
         }
       );
 

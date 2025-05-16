@@ -21,8 +21,11 @@ export default function FeedbackForm() {
       alert("Feedback sent successfully!");
     } catch (error) {
       console.error(error);
-      alert("Failed to send feedback.");
+      alert(
+        error?.response?.data?.message || "Failed to send feedback."
+      );
     }
+    
   };
 
   return (

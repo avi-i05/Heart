@@ -8,7 +8,7 @@ import Patient from "./models/Patient.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || "https://myapp-client.onrender.com";
 
 
 const corsOptions = {
